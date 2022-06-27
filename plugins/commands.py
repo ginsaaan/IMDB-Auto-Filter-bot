@@ -67,10 +67,10 @@ async def start(bot, cmd):
                     f_caption = f"{files.file_name}"
                 buttons = [
                     [
-                        InlineKeyboardButton('🤖  Use Our Bots 🤖', url=https://t.me/bots_showcase')
+                        InlineKeyboardButton("🤖  Use Our Bots 🤖", url=f"https://t.me/bots_showcase")
                     ],
                     [
-                        InlineKeyboardButton('🔍 Series Sequest Group 🔎', url=https://t.me/series_showcase')
+                        InlineKeyboardButton("🔍 Series Sequest Group 🔎", url=f"https://t.me/series_showcase")
                     ]
                     ]
                 await bot.send_cached_media(
@@ -103,7 +103,7 @@ async def start(bot, cmd):
                 [
                     [
                         InlineKeyboardButton("Search Here", switch_inline_query_current_chat=''),
-                        InlineKeyboardButton("Bot Updates", url="https://t.me/Mo_Tech_YT")
+                        InlineKeyboardButton("Bot Updates", url=f"https://t.me/Mo_Tech_YT")
                     ],
                     [
                         InlineKeyboardButton("About", callback_data="about")
@@ -171,7 +171,7 @@ async def delete(bot, message):
     if reply and reply.media:
         msg = await message.reply("Processing...⏳", quote=True)
     else:
-        await message.reply('Reply to file with /delete which you want to delete', quote=True)
+        await message.reply("Reply to file with /delete which you want to delete", quote=True)
         return
 
     for file_type in ("document", "video", "audio"):
@@ -188,15 +188,15 @@ async def delete(bot, message):
         'mime_type': media.mime_type
     })
     if result.deleted_count:
-        await msg.edit('File is successfully deleted from database')
+        await msg.edit("File is successfully deleted from database")
     else:
-        await msg.edit('File not found in database')
+        await msg.edit("File not found in database")
 @Client.on_message(filters.command('about'))
 async def bot_info(bot, message):
     buttons = [
         [
-            InlineKeyboardButton('Update Channel', url='https://t.me/Mo_Tech_YT'),
-            InlineKeyboardButton('Video', url=f'{TUTORIAL}')
+            InlineKeyboardButton("Update Channel", url="https://t.me/Mo_Tech_YT"),
+            InlineKeyboardButton("Video", url=f"{TUTORIAL}")
         ]
         ]
     await message.reply(text=f"<b>Developer : <a href='https://t.me/subinps_bot'>SUBIN</a>\nLanguage : <code>Python3</code>\nLibrary : <a href='https://docs.pyrogram.org/'>Pyrogram asyncio</a>\nSource Code : <a href='{TUTORIAL}'>Click here</a>\nUpdate Channel : <a href='https://t.me/Mo_Tech_YT'>Mo Tech YT</a> </b>", reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
